@@ -1,4 +1,4 @@
-import graphqlHTTP from "express-graphql"
+import { graphqlHTTP } from "express-graphql"
 import { schema } from "./schema"
 import { root as rootValue } from "./resolver"
 
