@@ -2,9 +2,10 @@ import mongoose from "mongoose"
 import { userSchema } from "./methods"
 import { logger } from "../utils/logger"
 import fs from "fs"
+import path from "path"
 
-const CERTIFICATE_PATH = "../rds-combined-ca-bundle.pem"
-const certificateCA = CERTIFICATE_PATH && [fs.readFileSync(CERTIFICATE_PATH)]
+const certificatePath = path.join("../", process.env.CERTIFICATE_FILENAME)
+const certificateCA = process.env.CERTIFICATE_FILENAME && [fs.readFileSync(certificatePath)]
 
 const sslOptions = certificateCA
 	? {
