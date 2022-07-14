@@ -4,7 +4,7 @@ import { logger } from "../utils/logger"
 import fs from "fs"
 import path from "path"
 
-const certificatePath = path.join("../", process.env.CERTIFICATE_FILENAME)
+const certificatePath = path.join(__dirname, "..", "..", process.env.CERTIFICATE_FILENAME)
 const certificateCA = process.env.CERTIFICATE_FILENAME && [fs.readFileSync(certificatePath)]
 
 const sslOptions = certificateCA
